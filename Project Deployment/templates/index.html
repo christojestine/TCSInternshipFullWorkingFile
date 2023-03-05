@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>HR Salary Prediction Dashboard</title>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css"
+</head>
+<body>
+    <h1> HR Salary<br>Prediction Dashboard</h1>
+    <h3>Please provid the necessary Information</h3>
+    <div class="formregion">
+        <form id="form_hr" class="Form_hr" action="{{url_for('predict')}}" method="POST">
+            <label>Age :</label>
+            <input class="inputregion" name="'age" type="text" placeholder="Age of Employee" required><br>
+            <label>Select the working class :</label>
+            <select class="dropdownstyle" name="working class">
+                <option value="none" selected disabled hidden>Select an Option :</option>
+                <option value="6">State-gov</option>
+                <option value="5">Self-emp-not-inc</option>
+                <option value="3">Private</option>
+                <option value="0">Federal-gov</option>
+                <option value="1">Self-emp-inc</option>
+                <option value="4">Local-gov</option>
+                <option value="7">Without-pay</option>
+                <option value="2">Never-worked</option>
+            </select><br>
+            <label>Select the Eduction Level :</label>
+            <select class="dropdownstyle" name="education">
+                <option value="none" selected disabled hidden>Select an Option :</option>
+                <option value="9">Bachelors</option>
+                <option value="11">HS-grad</option>
+                <option value="1">11th</option>
+                <option value="12">Masters</option>
+                <option value="6">9th</option>
+                <option value="15">Some-college</option>
+                <option value="7">Assoc-acdm</option>
+                <option value="8">Assoc-voc</option>
+                <option value="5">7th-8th</option>
+                <option value="10">Doctorate</option>
+                <option value="14">Prof-school</option>
+                <option value="4">5th-6th</option>
+                <option value="0">10th</option>
+                <option value="3">1st-4th</option>
+                <option value="13">Preschool</option>
+                <option value="2">12th</option>
+            </select><br>
+            <label>Education-num :</label>
+            <input class="inputregion" name="Education-num" type="text" placeholder="Education-number" required><br>
+            <label>Marital-status</label>
+            <select class="dropdownstyle" name="Marital-status">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="4">Never-married</option>
+                <option value="2">Married-civ-spouse</option>
+                <option value="0">Divorced</option>
+                <option value="3">Married-spouse-absent</option>
+                <option value="5">Separated</option>
+                <option value="1">Married-AF-spouse</option>
+                <option value="6">Widowed</option>
+            </select><br>
+            <label>Occupation :</label>
+            <select class="dropdownstyle" name="Occupation">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="0">Adm-clerical</option>
+                <option value="3">Exec-managerial</option>
+                <option value="5">Handlers-cleaners</option>
+                <option value="9">Prof-specialty</option>
+                <option value="7">Other-service</option>
+                <option value="11">Sales</option>
+                <option value="2">Craft-repair</option>
+                <option value="13">Transport-moving</option>
+                <option value="4">Farming-fishing</option>
+                <option value="6">Machine-op-inspct</option>
+                <option value="12">Tech-support</option>
+                <option value="10">Protective-serv</option>
+                <option value="1">Armed-Forces</option>
+                <option value="8">Priv-house-serv</option>
+            </select><br>
+            <label>Relationship :</label>
+            <select class="dropdownstyle" name="Relationship">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="1">Not-in-family</option>
+                <option value="0">Husband</option>
+                <option value="5">Wife</option>
+                <option value="3">Own-child</option>
+                <option value="4">Unmarried</option>
+                <option value="2">Other-relative</option>
+            </select><br>
+            <label>Race :</label>
+            <select class="dropdownstyle" name="Race">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="4">White</option>
+                <option value="2">Black</option>
+                <option value="1">Asian-Pac-Islander</option>
+                <option value="0">Amer-Indian-Eskimo</option>
+                <option value="3">Other</option>
+            </select><br>
+            <label>Gender :</label>
+            <select class="dropdownstyle" name="sex">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select><br>
+            <label>Hours-Per-Week :</label>
+            <input class="inputregion" name="Hours-Per-Week" type="text" placeholder="Hours-Per-Week" required><br>
+
+
+    </div>
+    <div class='button'>
+        <button class="predictbutton" type="submit" value="submit" form="form_hr">Predict</button>
+    </div>
+    </form>
+    <div class="output">
+        <h4>The salary corresponding to the given detials =<br>{{Prediction_output}}</h4>
+
+    </div>
+
+</body>
+</html>
